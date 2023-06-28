@@ -27,7 +27,7 @@ A local grocery store has hired you to help organize coupon distribution.  The g
 
 #### Step 1:
 
-- Fork and clone [this](https://git.generalassemb.ly/SEI-Standard-Curriculum/M1L11-callbacks-wbp/tree/main) repository. (Make sure you are logged in to your GitHub Enterprise account)
+- Fork and clone this repo onto your local machine.
 <!-- - Install dependencies with `npm i` -->
 
 #### Step 2:

@@ -24,6 +24,18 @@ const isEligibleForCoupon = (user) => {
   return !user.hasCoupon && user.isEnrolledInRewards;
 };
 
+const determineCouponRecipients = (listOfUsers, cbiSUserEligibleForCoupon) => {
+  const arrayFirst5Elig = [];
+  listOfUsers.forEach((user) => {
+    if (cbiSUserEligibleForCoupon)
+    {
+      if (arrayFirst5Elig.length >= 5) return arrayFirst5Elig;
+      else arrayFirst5Elig.push(user);
+    }
+  });
+  return arrayFirst5Elig;
+};
+
 module.exports = {
   determineCouponRecipients,
   isEligibleForCoupon,

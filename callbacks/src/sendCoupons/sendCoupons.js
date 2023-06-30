@@ -46,6 +46,15 @@ const updateUserCouponSent = (user) => {
  *   - update the user in the database by calling the third callback function
  *  If the user doesn't have a valid phone number, don't do anything for that user
  */
+const sendAllCoupons = (listOfUsers, cbValidPhoneNum, cbPrintMessage, cbUpdateUser) => {
+  listOfUsers.forEach(user => {
+    if (cbValidPhoneNum(user))
+    {
+      cbPrintMessage(user);
+      cbUpdateUser(user);
+    }
+  });
+};
 
 module.exports = {
   canSendCoupon,

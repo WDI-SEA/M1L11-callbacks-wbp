@@ -9,16 +9,14 @@ const UserDatabase = {
 
   // SOLUTION: this keyword is not bound to the UserDatabase since this was an arrow function
   // SOLUTION: change the arrow function into a normal function
-  addUser: (name, id, phone) => {
-    this.users.push({ name, id , phone, hasCoupon: false, hasUsedCoupon: false});
+  addUser: function(name, id, phone) {
+    this.users.push({ name, id , phone, hasCoupon: false, isEnrolledInRewards: false});
   },
 
-  // what is wrong with this function?
-  function loadFromFile : () => {
+  loadFromFile : function() {
     const usersFromFile = require("./usersdb.json");
     this.users = usersFromFile;
-  },
-  
+  }
 };
 
 module.exports = UserDatabase;

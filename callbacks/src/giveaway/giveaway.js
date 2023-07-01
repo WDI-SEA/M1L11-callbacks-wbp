@@ -21,10 +21,18 @@
 // This function takes in a single user as an argument
 // This function will return true only if the user is eligible to receive a coupon
 const isEligibleForCoupon = (user) => {
-  return !user.hasCoupon && user.isEnrolledInRewards;
+    return !user.hasCoupon && user.isEnrolledInRewards;
 };
+function determineCouponRecipients(users, cb) {
+    let luckyWinners = [];
+    for (let i = 0; i < users.length; i++) {
+        if (cb(users[i])) luckyWinners.push(users[i]);
+        if (luckyWinners.length === 5) return luckyWinners;
+    }
+    return luckyWinners;
+}
 
 module.exports = {
-  determineCouponRecipients,
-  isEligibleForCoupon,
+    determineCouponRecipients,
+    isEligibleForCoupon,
 };

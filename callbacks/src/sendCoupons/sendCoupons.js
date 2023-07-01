@@ -5,7 +5,7 @@
  * can send a text message to
  */
 const canSendCoupon = (user) => {
-  return user.phone != "";
+    return user.phone != "";
 };
 
 /**
@@ -13,7 +13,7 @@ const canSendCoupon = (user) => {
  * received a coupon to the console
  * */
 const sendCoupon = (user) => {
-  console.log(`
+    console.log(`
         ---------------------------------------------------------
         Text message sent to ${user.phone}
 
@@ -28,9 +28,16 @@ const sendCoupon = (user) => {
  * setting the user's hasCoupon field to true.
  */
 const updateUserCouponSent = (user) => {
-  user.hasCoupon = true;
+    user.hasCoupon = true;
 };
-
+const sendAllCoupons = (users, validateFn, sendFn, updateFn) => {
+    users.forEach((user) => {
+        if (validateFn(user)) {
+            sendFn(user);
+            updateFn(user);
+        }
+    });
+};
 /**
  * Write a function called sendAllCoupons() that takes four arguments:
  *  1. a list of Users
@@ -48,8 +55,8 @@ const updateUserCouponSent = (user) => {
  */
 
 module.exports = {
-  canSendCoupon,
-  sendCoupon,
-  updateUserCouponSent,
-  sendAllCoupons,
+    canSendCoupon,
+    sendCoupon,
+    updateUserCouponSent,
+    sendAllCoupons,
 };

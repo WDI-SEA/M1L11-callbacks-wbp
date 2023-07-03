@@ -10,7 +10,7 @@ const UserDatabase = {
   // SOLUTION: this keyword is not bound to the UserDatabase since this was an arrow function
   // SOLUTION: change the arrow function into a normal function
   addUser: function(name, id, phone) {
-    this.users.push({ name, id, phone, hasCoupon: false, hasUsedCoupon: false });
+    this.users.push({ name, id, phone, hasCoupon: false, isEnrolledInRewards: false });
   },
 
   // what is wrong with this function?

@@ -28,3 +28,21 @@ module.exports = {
   determineCouponRecipients,
   isEligibleForCoupon,
 };
+
+ function determineCouponRecipients(users,call) {
+const verify = []
+// iterate 
+for (let i = 0; i < user.length; i++ ) {
+  if (call(users[i])) {
+    verify.push(user)
+
+  }
+   
+  if(verify.length >= 5 ) {
+    break
+  }
+}
+
+return verify
+ }
+

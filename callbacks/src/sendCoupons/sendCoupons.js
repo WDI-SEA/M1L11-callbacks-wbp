@@ -47,6 +47,15 @@ const updateUserCouponSent = (user) => {
  *  If the user doesn't have a valid phone number, don't do anything for that user
  */
 
+const sendAllCoupons = (users, canSendCoupon, sendCoupon, updateUserCouponSent) => {
+  users.forEach(user => {
+    if (canSendCoupon(user)) {
+      sendCoupon(user);
+      updateUserCouponSent(user);
+    }
+  })
+}
+
 module.exports = {
   canSendCoupon,
   sendCoupon,

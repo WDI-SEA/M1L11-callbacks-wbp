@@ -24,6 +24,19 @@ const isEligibleForCoupon = (user) => {
   return !user.hasCoupon && user.isEnrolledInRewards;
 };
 
+const determineCouponRecipients = (users, cb) => {
+  const couponRecipients = [];
+  for (let i = 0; i < users.length; i++) {
+    if (cb(users[i])) {
+      if (couponRecipients.length >= 5) {
+        return;
+      }
+      couponRecipients.push(users[i])
+    }
+  }
+  return couponRecipients;
+}
+
 module.exports = {
   determineCouponRecipients,
   isEligibleForCoupon,

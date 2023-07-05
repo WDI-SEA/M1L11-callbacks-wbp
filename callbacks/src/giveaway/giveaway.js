@@ -24,6 +24,26 @@ const isEligibleForCoupon = (user) => {
   return !user.hasCoupon && user.isEnrolledInRewards;
 };
 
+function determineCouponRecipients(users, cb) {
+  // an array to store users who are eligible for this reward
+  const eligible = []
+  // iterate the arary of users checking each user to see if they are eligibale using the callback
+  for (let i = 0; i < users.length; i++) {
+    // if they are, push them into the array of eligable users
+    if (cb(users[i])) {
+      eligible.push(users[i])
+    }
+
+    if (eligible.length >= 5) {
+      // check if there are 5 eligible users
+        // if so, return the array of eligible users (by breaking the loop)
+        break
+    }
+  }
+
+  return eligible
+}
+
 module.exports = {
   determineCouponRecipients,
   isEligibleForCoupon,

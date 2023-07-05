@@ -16,7 +16,23 @@
  */
 
 // YOUR CODE HERE:
+function determineCouponRecipients(users, eligibilityCallback) {
+  const couponRecipients = [];
+  let count = 0;
 
+  for (const user of users) {
+    if (eligibilityCallback(user)) {
+      couponRecipients.push(user);
+      count++;
+
+      if (count === 5) {
+        break;
+      }
+    }
+  }
+
+  return couponRecipients;
+}
 // This is the callback function that will be passed to your function
 // This function takes in a single user as an argument
 // This function will return true only if the user is eligible to receive a coupon

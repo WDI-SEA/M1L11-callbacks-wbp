@@ -17,12 +17,30 @@
 
 // YOUR CODE HERE:
 
+
+function determineCouponRecipients(users, cb) {
+  const couponRecipients = users.filter(isEligibleForCoupon).slice(0, 5);
+  const isEligibleForCoupon = (user) => {
+    return !user.hasCoupon && user.isEnrolledInRewards;
+  };
+
+
+};
+
 // This is the callback function that will be passed to your function
 // This function takes in a single user as an argument
 // This function will return true only if the user is eligible to receive a coupon
-const isEligibleForCoupon = (user) => {
-  return !user.hasCoupon && user.isEnrolledInRewards;
-};
+
+
+
+
+
+
+
+
+// const isEligibleForCoupon = (user) => {
+//   return !user.hasCoupon && user.isEnrolledInRewards;
+// };
 
 module.exports = {
   determineCouponRecipients,

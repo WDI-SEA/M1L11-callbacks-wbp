@@ -18,23 +18,36 @@
 // YOUR CODE HERE:
 
 
-function determineCouponRecipients(users, cb) {
-  const couponRecipients = users.filter(isEligibleForCoupon).slice(0, 5);
-  const isEligibleForCoupon = (user) => {
-    return !user.hasCoupon && user.isEnrolledInRewards;
-  };
+// function determineCouponRecipients(users, cb) {
+//   const couponRecipients = users.filter(isEligibleForCoupon).slice(0, 5);
+//   const isEligibleForCoupon = (user) => {
+//     return !user.hasCoupon && user.isEnrolledInRewards;
+//   };
+// };
 
 
-};
 
 // This is the callback function that will be passed to your function
 // This function takes in a single user as an argument
 // This function will return true only if the user is eligible to receive a coupon
 
 
+function determineCouponRecipients(users, cb) {
+  const elligble = []
+  for (let i = 0; i < users.length; i++) {
+    if (cb(users[i])) {
+      elligble.push(users[i])
+    }
+    if (elligble.length >= 5) {
+      break
+    }
+  }
+  return elligble
+}
 
-
-
+const isEligibleForCoupon = (user) => {
+  return !user.hasCoupon && user.isEnrolledInRewards;
+};
 
 
 

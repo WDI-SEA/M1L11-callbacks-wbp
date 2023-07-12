@@ -4,22 +4,20 @@
  * Can you find and fix the bugs so that the expected behavior is achieved?
  */
 
-const UserDatabase = {
-  users: [],
+const UserDatabase=
+  users = []
 
   // SOLUTION: this keyword is not bound to the UserDatabase since this was an arrow function
   // SOLUTION: change the arrow function into a normal function
-  addUser: (name, id, phone) => {
-    this.users.push({ name, id , phone, hasCoupon: false, hasUsedCoupon: false});
-  },
-
+  function addUser(name, id, phone){
+    users.push({ name, id , phone, hasCoupon: false, hasUsedCoupon: false});
+  }
   // what is wrong with this function?
-  function loadFromFile : () => {
+  function loadFromFile() {
     const usersFromFile = require("./usersdb.json");
     this.users = usersFromFile;
-  },
+  }
   
-};
 
 module.exports = UserDatabase;
 

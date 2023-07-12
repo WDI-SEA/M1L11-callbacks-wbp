@@ -16,7 +16,14 @@
  */
 
 // YOUR CODE HERE:
-
+function determineCouponRecipients(users,isEligibleForCoupon){
+  for(let i=0; i===5; i++){
+    if (isEligibleForCoupon){
+      let userList;
+      userList.push(users);
+    }
+  }
+}
 // This is the callback function that will be passed to your function
 // This function takes in a single user as an argument
 // This function will return true only if the user is eligible to receive a coupon
